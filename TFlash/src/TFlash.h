@@ -9,18 +9,18 @@
 
 // FLASHメモリステータス
 typedef enum  {
-  TFLASH_BUSY = 1,
-  TFLASH_ERROR_PG,
-  TFLASH_ERROR_WRP,
-  TFLASH_ERROR_OPT,
-  TFLASH_COMPLETE,
-  TFLASH_TIMEOUT,
-  TFLASH_BAD_ADDRESS
+    TFLASH_BUSY = 1,    // 処理中
+    TFLASH_ERROR_PG,    // 書込み失敗
+    TFLASH_ERROR_WRP,   // 書込み保護による書き込み失敗
+    TFLASH_ERROR_OPT,   // 操作異常
+    TFLASH_COMPLETE,    // 書込み完了
+    TFLASH_TIMEOUT,     // 書込み完了待ちタイムアウト
+    TFLASH_BAD_ADDRESS  // 不当操作
 } TFLASH_Status;
+
   
 class TFlash_Class {
   public:
-    TFLASH_Status waitOperation(uint32_t tm);
     TFLASH_Status eracePage(uint32_t pageAddress);
     TFLASH_Status write(uint16_t* adr, uint16_t data);
     TFLASH_Status write(uint16_t* adr, uint8_t* data, uint16_t len);
@@ -30,6 +30,7 @@ class TFlash_Class {
     void unlock();
 
   private:
+    TFLASH_Status waitOperation(uint32_t tm);
     TFLASH_Status getStatus(); 
 };
 
