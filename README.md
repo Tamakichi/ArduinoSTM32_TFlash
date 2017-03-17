@@ -166,7 +166,8 @@ typedef enum  {
 ## サンプルスケッチ
 ### stm32_testFlash
 フラッシュメモリへの書込みを行い、その内容を表示するプログラムです.  
-別途、mcursesライブラリ(https://github.com/ChrisMicro/mcurses)が必要です。  
+別途、mcursesライブラリが必要です.
+https://github.com/ChrisMicro/mcurses
 
 ```
 #define FLASH_PAGE_SIZE        1024
