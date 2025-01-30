@@ -12,7 +12,7 @@ TFlash	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 waitOperation		KEYWORD2
-eracePage		KEYWORD2
+erasePage		KEYWORD2
 write			KEYWORD2
 read			KEYWORD2
 lock			KEYWORD2

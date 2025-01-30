@@ -2,6 +2,10 @@
 // File: TFlash.cpp
 // Arduino STM32 内部フラッシュメモリ書き込みライブラリ V1.0
 // 作成日 2017/03/16 by たま吉さん
+// 修正日 2018/06/22 by たま吉さん,__io を__IOに変更（Arduino STM32最新版対応）
+// 修正日 2018/08/13 by たま吉さん,安定版・最新版の条件付きコンパイル対応
+// 修正日 2018/09/16 by たま吉さん,安定版を非サポート
+// 修正日 2025/01/30 by たま吉さん,Arduino_STM32最新版対応
 //
 
 #include <Arduino.h>
@@ -56,7 +60,7 @@ TFLASH_Status TFlash_Class::waitOperation(uint32_t tm) {
 }
 
 // 指定ページの消去
-TFLASH_Status TFlash_Class::eracePage(uint32_t pageAddress) {
+TFLASH_Status TFlash_Class::erasePage(uint32_t pageAddress) {
   TFLASH_Status status = TFLASH_COMPLETE;
 
   // アドレスの有効性チェック
@@ -89,7 +93,7 @@ TFLASH_Status TFlash_Class::write(uint16_t* adr, uint16_t data) {
     if(status == TFLASH_COMPLETE)  {
       // データの書込み
       FLASH_BASE->CR |= FLASH_CR_PG;
-      *(__io uint16*)adr = data;
+      *(__IO uint16*)adr = data;
       // 書込み完了待ち
       status = waitOperation(ProgramTimeout);
       if(status != TFLASH_TIMEOUT) {

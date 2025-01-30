@@ -7,6 +7,7 @@
 
 //
 // 修正 2017/03/14, Arduino STM32用に移植, by たま吉さん
+// 修正日 2025/01/30 by たま吉さん,Arduino_STM32最新版対応
 //
 
 #ifdef __cplusplus

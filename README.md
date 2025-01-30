@@ -50,7 +50,7 @@ typedef enum  {
 #### 指定ページ消去
 
 - 書式  
- `TFLASH_Status eracePage(uint32_t pageAddress)`  
+ `TFLASH_Status erasePage(uint32_t pageAddress)`  
 
 - 引数  
  pageAddress :フラッシュメモリアドレス    
@@ -218,9 +218,9 @@ void setup() {
 
   // フラッシュメモリ書き込みテスト
   TFlash.unlock();
-  TFlash.eracePage(adr0);
+  TFlash.erasePage(adr0);
   TFlash.write((uint16_t*)adr0, str1, strlen((char*)str1));
-  TFlash.eracePage(adr1);
+  TFlash.erasePage(adr1);
   TFlash.write((uint16_t*)adr1, str2, strlen((char*)str2));
   TFlash.lock();
 }

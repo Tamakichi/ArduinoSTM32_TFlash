@@ -2,6 +2,7 @@
 // FILE stm31_testFlash
 // フラッシュメモリ書き込みテスト for Arduino STM32
 // 作成日 2017/03/16 by たま吉さん
+// 修正日 2025/01/30 by たま吉さん,Arduino_STM32最新版対応
 //
 
 #define FLASH_PAGE_SIZE        1024
@@ -36,9 +37,9 @@ void setup() {
 
   // フラッシュメモリ書き込みテスト
   TFlash.unlock();
-  TFlash.eracePage(adr0);
+  TFlash.erasePage(adr0);
   TFlash.write((uint16_t*)adr0, str1, strlen((char*)str1));
-  TFlash.eracePage(adr1);
+  TFlash.erasePage(adr1);
   TFlash.write((uint16_t*)adr1, str2, strlen((char*)str2));
   TFlash.lock();
 }

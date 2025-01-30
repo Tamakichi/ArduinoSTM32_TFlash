@@ -2,6 +2,7 @@
 // File: TFlash.h
 // Arduino STM32 内部フラッシュメモリ書き込みライブラリ V1.0
 // 作成日 2017/03/16 by たま吉さん
+// 修正日 2025/01/30 by たま吉さん,Arduino_STM32最新版対応
 //
 
 #ifndef __TFLASH_H__
@@ -21,7 +22,7 @@ typedef enum  {
   
 class TFlash_Class {
   public:
-    TFLASH_Status eracePage(uint32_t pageAddress);
+    TFLASH_Status erasePage(uint32_t pageAddress);
     TFLASH_Status write(uint16_t* adr, uint16_t data);
     TFLASH_Status write(uint16_t* adr, uint8_t* data, uint16_t len);
     uint16_t read(uint16_t* adr) {return *((uint16_t*)adr);};
